@@ -1,21 +1,22 @@
 package com.kelaniya.uni.backend;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class StudentController {
 
-    @Autowired
-    StudentRepository studentRepository;
+    private StudentRepository studentRepository;
 
-    @GetMapping("/student")
-    public String getStudent() {
-        return "Pasan, 17, Horana";
+    @Autowired
+    public StudentController(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
     }
+
+//    @GetMapping("/student/{id}")
+//    public String getStudent(@PathVariable Integer id) {
+//        return studentRepository.getById(id);
+//    }
 
     @PostMapping("/student")
     public void addStudent(@RequestBody Student studentData) {

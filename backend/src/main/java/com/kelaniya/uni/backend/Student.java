@@ -1,8 +1,16 @@
 package com.kelaniya.uni.backend;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Student {
 
-    public String id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    public Integer id;
     public String name;
     public int age;
     public String city;
